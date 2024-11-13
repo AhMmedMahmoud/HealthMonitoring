@@ -1,0 +1,23 @@
+{
+  "FileInfo":
+  [
+    {
+      "Name": "echo",
+      "Path": "/tmp/"
+    }
+  ],
+
+  "Delay": 
+  [ 
+    {
+      "Value": 1
+    }
+  ],
+
+  "Text":
+  [
+    {
+      "Value": "i am alive\n"
+    }
+  ]
+}
