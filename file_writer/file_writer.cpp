@@ -11,8 +11,24 @@ FileWriter::~FileWriter() {
 }
 
 /********* fundemetal functions ******/
-bool FileWriter::open() {
+bool FileWriter::openExistingFile() {
+    if(!isFileExist()) {
+        std::cout << "file doesnot exist\n";
+        return 0;
+    }
+    
     if(!isOpen) {
+        /* std::ofstream::open is used to open an existing file or create a new file for output.*/
+        fileStream.open(filename);
+        isOpen = fileStream.is_open();
+    }
+    
+    return isOpen;
+}
+
+bool FileWriter::openFile() {
+    if(!isOpen) {
+        /* std::ofstream::open is used to open an existing file or create a new file for output.*/
         fileStream.open(filename);
         isOpen = fileStream.is_open();
     }
@@ -41,4 +57,9 @@ void FileWriter::close() {
 
 bool FileWriter::isFileOpen() const {
     return isOpen;
+}
+
+bool FileWriter::isFileExist() const {
+    std::ifstream fileCheck(filename);  
+    return fileCheck.good(); // Returns true if the file can be opened  
 }

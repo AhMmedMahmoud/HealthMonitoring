@@ -20,13 +20,17 @@ public:
     ~FileWriter();
 
     /********* fundemetal functions ******/
-    bool open();
+    bool openExistingFile();
+
+    bool openFile();
 
     bool write(const std::string& data);
 
     void close();
 
     bool isFileOpen() const;
+
+    bool isFileExist() const;
 };
 
 #endif
